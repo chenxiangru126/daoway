@@ -7,6 +7,45 @@
     <link rel="stylesheet" href="css/yunjiazheng.css">
 </head>
 <body>
+    <header class="header1" >
+    <div class="header1_container">
+        <div class="logo">
+            <a href="#">
+                <img src="./images/shouye/toubu/logo.png" alt="">
+            </a>
+        </div>
+        <div class="menu">
+            <ul class="menu_list">
+                <li class="menu_item address">
+                    <img src="./images/shouye/toubu/citypoint.png" alt="">
+                    <a href="">北京</a>
+                    <a href="">切换城市</a>
+                </li>
+                <li class="menu_item item_page">
+                    <a href="index.html">首页</a>
+                </li>
+                <li class="menu_item">
+                    <a href="">到位APP</a>
+                </li>
+                <li class="menu_item">
+                    <a href="service.html">服务商</a>
+                </li>
+                <li class="menu_item">
+                    <a href="">商家入驻</a>
+                </li>
+                <li class="menu_item">
+                    <a href="">风物APP</a>
+                </li>
+                <li class="menu_item">
+                    <a href="">关于我们</a>
+                </li>
+                <li class="menu_item seller">
+                    <a href="">商家登陆</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
     <header class="header">
         <div class="header_container">
             <!--头左  头右-->
@@ -60,7 +99,7 @@
                 <div class="paging_center">
                     <a class="last_page" href="javascript:">&lt上一页</a>
                     <div class="page_num">
-                        <a href="javascript:">1</a>
+                        <a class="click_red" href="javascript:">1</a>
                         <a href="javascript:">2</a>
                         <a href="javascript:">3</a>
                         <a href="javascript:">4</a>
@@ -280,7 +319,7 @@
                             </span>
                     <em>2018-03-16</em>
                 </li>
-                <li class="commentdetail">准时到达</li>
+                <li class="commentdetail">{{$value.comment}}</li>
                 <li class="commentimg"></li>
                 <li class="commentposition">
                     <img src="images/shouye/toubu/position.jpg" alt="">
@@ -337,25 +376,28 @@
                 $('.header_container').append(template('toubu',{data:data}))
                 $('.jtbj').append(template('jiatingbaojian',{data:data}))
                 $('.sjjj').append(template('shangjiajianjie',{data:data}))
+            });
+
+            var page = 1;
+            $.get('/commentslist?page='+page,function (data) {
+                $('.commentDiv').html(template('pinglunqu',{data:data}))
             })
-        })
-        $(function () {
-            $.get('/commentslist',function (data) {
-                $('.commentDiv').append(template('pinglunqu',{data:data}))
+
+            $('.page_num a').click(function() {
+                page = $(this).html();
+                $.get('./commentslist?page='+page,function(data) {
+                    const html1 = template('pinglunqu',{data:data})
+                    $('.commentDiv').html(html1)
+                })
             })
-        })
 
 
-        var page = 1
-        $('.page_num a').click(function() {
-            page = $(this).html();
-            $.get('./commentslist',function(data) {
-                const html1 = template('userComment',{data:data})
-                $('.assess_list').append(html1)
-            })
         })
+
 
 
     </script>
 </body>
 </html>
+
+

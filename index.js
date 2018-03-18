@@ -47,16 +47,32 @@ app.get('/itemslist',function (req,res) {
 })
 
 
-app.get('/commentslist',function (req,res) {
+// app.get('/commentslist',function (req,res) {
+//
+//     CommentsModel.find({},function (err,list) {
+//         if (err){
+//             console.log('cuo')
+//         }else
+//             console.log(list)
+//         res.send({list:list})
+//     })
+// })
 
-    CommentsModel.find({},function (err,list) {
-        if (err){
-            console.log('cuo')
-        }else
-            console.log(list)
-        res.send({list:list})
+
+
+
+//
+app.get('/commentslist',function (req,res) {
+    var page = req.query.page
+    // req.param()
+    CommentsModel.find({}).limit(10).skip((page-1)*10).exec(function (err, list) {
+        if(!err){
+            res.send({list:list})
+        }
     })
 })
+
+
 
 
 

@@ -268,6 +268,62 @@ body .main .xiangqing .commentDiv .conmentss ul .commentdetail {
   line-height: 26px;
   font-size: 16px;
 }
+body .main .xiangqing .paging {
+  width: 100%;
+  margin: 0 auto;
+  height: 152px;
+  clear: both;
+  text-align: center;
+}
+body .main .xiangqing .paging .paging_center {
+  padding-top: 30px;
+  margin-left: 140px;
+}
+body .main .xiangqing .paging .paging_center > a {
+  display: inline-block;
+  box-sizing: border-box;
+  line-height: 30px;
+  border-radius: 0;
+  font-size: 14px;
+  margin: 50px 5px;
+  float: left;
+}
+body .main .xiangqing .paging .paging_center .page_num {
+  float: left;
+  display: inline-block;
+  box-sizing: border-box;
+}
+body .main .xiangqing .paging .paging_center .page_num > a {
+  box-sizing: border-box;
+  text-align: center;
+  color: #333;
+  display: inline-block;
+  line-height: 30px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #e5e5e5;
+  margin: 50px 5px;
+}
+body .main .xiangqing .paging .paging_center .last_page {
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  border: 1px solid #e5e5e5;
+  text-align: center;
+  display: inline-block;
+  float: left;
+  color: #929292;
+}
+body .main .xiangqing .paging .paging_center .next_page {
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  color: #121212;
+  border: 1px solid #e5e5e5;
+  float: left;
+}
 body .main .center-right {
   float: right;
   width: 230px;
@@ -282,6 +338,13 @@ body .main .center-right .right-bom {
 body .main .center-right .right-bom img {
   width: 130px;
   margin: 50px 0 0 50px;
+}
+body .kongkong3 {
+  overflow: hidden;
+  display: block;
+  background-color: #fbf8f8;
+  height: 70px;
+  width: 100%;
 }
 body .xiabufen {
   width: 100%;
@@ -380,7 +443,7 @@ body .xiabufen .address .address_address {
 body .xiabufen .address .address_address p {
   background: #ffffff;
   color: #898989;
-  margin-left: 118px;
+  margin-left: 430px;
   float: left;
   font-size: 14px;
 }

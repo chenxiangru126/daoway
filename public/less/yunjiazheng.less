@@ -301,6 +301,64 @@ body{
 
         }
       }
+      .paging{
+        width: 100%;
+        margin: 0 auto;
+        height: 152px;
+        clear: both;
+        text-align: center;
+        .paging_center{
+          padding-top: 30px;
+          margin-left:140px;
+          >a{
+            display: inline-block;
+            box-sizing: border-box;
+            line-height: 30px;
+            border-radius: 0;
+            font-size: 14px;
+            margin: 50px 5px;
+            float: left;
+          }
+          .page_num {
+            float: left;
+            display: inline-block;
+            box-sizing: border-box;
+            >a{
+              box-sizing: border-box;
+              //background: #fe454a;
+              text-align: center;
+              color: #333;
+              display: inline-block;
+              line-height: 30px;
+              width: 30px;
+              height: 30px;
+              border: 1px solid #e5e5e5;
+              margin: 50px 5px;
+            }
+          }
+          .last_page{
+            width: 80px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 14px;
+            border:1px solid #e5e5e5;
+            text-align: center;
+            display: inline-block;
+            float:left;
+            color:#929292;
+          }
+          .next_page {
+            width: 80px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 14px;
+            color: #121212;
+            border: 1px solid #e5e5e5;
+            float: left;
+          }
+        }
+      }
+
     }
 
     .center-right{
@@ -324,7 +382,13 @@ body{
       }
   }
 
-
+  .kongkong3{
+    overflow: hidden;
+    display: block;
+    background-color: #fbf8f8;
+    height: 70px;
+    width: 100%;
+  }
   .xiabufen{
     width: 100%;
     //margin-top: 60px;
@@ -440,7 +504,7 @@ body{
           //margin-top: 30px;
           background: #ffffff;
           color: #898989;
-          margin-left: 118px;
+          margin-left: 430px;
           float: left;
           font-size: 14px;
         }

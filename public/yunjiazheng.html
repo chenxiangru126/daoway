@@ -34,31 +34,7 @@
                 </span>
             </h3>
             <div class="jtbj">
-                <div class="jtbj_container">
-                    <img src="images/shouye/jiatingbaojie.jpg" alt="">
-                    <div class="jtbj_word">
-                        <ul class="jtbj_list">
-                            <li class="word_big1">家庭保洁</li>
-                            <li class="word_big2"><a href="">家庭保洁服务，2小时起订，服务时间未使用完不做退款处理。
-                                阿...</a>
-                            </li>
-                            <li class="word_big3">
-                                <i class="word_big3_1">
-                                    35
-                                    <em>元/小时</em>
-                                </i>
-                                <i class="word_big3_2">
-                                    原价
-                                    <em>45</em>
-                                </i>
-                            </li>
-                        </ul>
-                    </div>
-                    <span class="jtbj_sold">
-                    已售
-                    <i>99999</i>
-                </span>
-                </div>
+                <!--家庭保洁-->
             </div>
             <div class="kongkong"></div>
             <h3>
@@ -66,14 +42,9 @@
                     <i>商家简介</i>
                 </span>
             </h3>
-            <div class="company">
-                上海家谐网络科技有限公司
-                <img src="images/shouye/toubu/renzheng.jpg" alt="">
+            <div class="sjjj">
+
             </div>
-            <p class="profile">
-                云家政是家政服务在线预订平台。我们的目标是让每个家庭都能获得诚信、便捷、有保障的家政服务。云家政拥有国内最大的实名认证家庭服务员数据库，目前平台上有超过100000名专业服务人员；数百个家政服务商，遍布全国主要城市各个社区。
-                云家政倡导简单、轻松的生活方式。通过把分散的家政服务能力汇集和分配，让中国家庭获得诚信、便捷、有保障的家政服务，解决日常生活中的麻烦事，把更多时间留给自己和家人，提高生活品质。
-            </p>
             <div class="kongkong2"></div>
             <h3>
                 <span class="">
@@ -85,6 +56,25 @@
             <div class="commentDiv">
 
             </div>
+            <div class="paging">
+                <div class="paging_center">
+                    <a class="last_page" href="javascript:">&lt上一页</a>
+                    <div class="page_num">
+                        <a href="javascript:">1</a>
+                        <a href="javascript:">2</a>
+                        <a href="javascript:">3</a>
+                        <a href="javascript:">4</a>
+                        <a href="javascript:">5</a>
+                        <a href="javascript:">6</a>
+                        <a href="javascript:">7</a>
+                        <a href="javascript:">8</a>
+                        <a href="javascript:">9</a>
+                        <a href="javascript:">10</a>
+                        <span>...</span>
+                    </div>
+                    <a class="next_page" href="javascript:">下一页&gt</a>
+                </div>
+            </div>
         </div>
         <div class="center-right">
             <div class="right-top">
@@ -94,6 +84,8 @@
                 <img src="images/daowayApp.png" alt="">
             </div>
         </div>
+    </div>
+    <div class="kongkong3">
     </div>
     <div class="xiabufen">
         <div class="baozhang">
@@ -298,12 +290,53 @@
         </div>
         {{/each}}
     </script>
+    <script id="jiatingbaojian" type="text/html">
+        {{each data.list}}
+        <div class="jtbj_container">
+            <img src="images/shouye/jiatingbaojie.jpg" alt="">
+            <div class="jtbj_word">
+                <ul class="jtbj_list">
+                    <li class="word_big1">{{$value.name}}</li>
+                    <li class="word_big2"><a href="">{{$value.desc}}</a>
+                    </li>
+                    <li class="word_big3">
+                        <i class="word_big3_1">
+                            {{$value.price}}
+                            <em>元/小时</em>
+                        </i>
+                        <i class="word_big3_2">
+                            原价
+                            <em>{{$value.oldPrice}}</em>
+                        </i>
+                    </li>
+                </ul>
+            </div>
+            <span class="jtbj_sold">
+                    已售
+                    <i>{{$value.soldCount}}</i>
+                </span>
+        </div>
+        {{/each}}
+    </script>
+    <script id="shangjiajianjie" type="text/html">
+        {{each data.list}}
+        <div class="company">
+            {{$value.company}}
+            <img src="images/shouye/toubu/renzheng.jpg" alt="">
+        </div>
+        <p class="profile">
+         {{$value.profile}}
+        </p>
+        {{/each}}
+    </script>
     <script type="text/javascript" src="./js/jquery.1.10.2.js"></script>
     <script type="text/javascript" src="js/template-web.js"></script>
     <script type="text/javascript">
         $(function () {
             $.get('/itemslist',function (data) {
                 $('.header_container').append(template('toubu',{data:data}))
+                $('.jtbj').append(template('jiatingbaojian',{data:data}))
+                $('.sjjj').append(template('shangjiajianjie',{data:data}))
             })
         })
         $(function () {
@@ -312,6 +345,17 @@
             })
         })
 
-</script>
+
+        var page = 1
+        $('.page_num a').click(function() {
+            page = $(this).html();
+            $.get('./commentslist',function(data) {
+                const html1 = template('userComment',{data:data})
+                $('.assess_list').append(html1)
+            })
+        })
+
+
+    </script>
 </body>
 </html>
